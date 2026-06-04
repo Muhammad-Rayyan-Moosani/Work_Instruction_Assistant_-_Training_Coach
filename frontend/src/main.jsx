@@ -1,10 +1,11 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.jsx'
+import './theme.css'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+/* Apply the saved theme immediately so there's no flash of the wrong colours */
+const savedTheme = localStorage.getItem('theme') || 'light'
+document.documentElement.setAttribute('data-theme', savedTheme)
+
+const domnode = document.getElementById('root');
+const root = createRoot(domnode)
+root.render(<App />);

@@ -1,0 +1,162 @@
+/* ============================================================
+   THEME VARIABLES
+   Light is the default. [data-theme="dark"] on <html> flips them.
+   ============================================================ */
+
+:root {
+  /* surfaces */
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --text-2: #64748b;
+  --border: #e6ebf2;
+  --border-soft: #f1f5f9;
+  --input-bg: #f1f5f9;
+  --hover: #f1f5f9;
+  --shadow: rgba(15, 23, 42, 0.06);
+
+  /* sidebar (matches theme — light) */
+  --sidebar-bg: #ffffff;
+  --sidebar-border: #e6ebf2;
+  --sidebar-brand: #0f172a;
+  --sidebar-text: #475569;
+  --sidebar-muted: #94a3b8;
+  --sidebar-hover: #f1f5f9;
+  --sidebar-active-bg: #eaf1ff;
+  --sidebar-active-text: #2563eb;
+}
+
+[data-theme="dark"] {
+  /* surfaces */
+  --bg: #0b1120;
+  --card: #111a2e;
+  --text: #e6edf6;
+  --text-2: #8a99b1;
+  --border: #1f2b43;
+  --border-soft: #18233a;
+  --input-bg: #0e1626;
+  --hover: #1a2740;
+  --shadow: rgba(0, 0, 0, 0.4);
+
+  /* sidebar (matches theme — deep navy, same family as bg) */
+  --sidebar-bg: #0b1120;
+  --sidebar-border: #1f2b43;
+  --sidebar-brand: #ffffff;
+  --sidebar-text: #cbd5e1;
+  --sidebar-muted: #8a99b1;
+  --sidebar-hover: #18233a;
+  --sidebar-active-bg: rgba(37, 99, 235, 0.16);
+  --sidebar-active-text: #60a5fa;
+}
+
+/* ============================================================
+   DARK MODE OVERRIDES
+   The page CSS uses hardcoded light colors. These rules re-skin
+   the shared building blocks so every page looks right in dark.
+   ============================================================ */
+
+/* page text colour */
+[data-theme="dark"] .dash-page,
+[data-theme="dark"] .asst-page,
+[data-theme="dark"] .ds-page,
+[data-theme="dark"] .dm-page,
+[data-theme="dark"] .um-page,
+[data-theme="dark"] .ac-page,
+[data-theme="dark"] .set-page,
+[data-theme="dark"] .qb-page,
+[data-theme="dark"] .tq-page,
+[data-theme="dark"] .qr-page,
+[data-theme="dark"] .tm-page { color: var(--text); }
+
+/* headings + strong text */
+[data-theme="dark"] .dash-title,    [data-theme="dark"] .dash-kpi-value,
+[data-theme="dark"] .asst-title,    [data-theme="dark"] .asst-a,        [data-theme="dark"] .asst-q-label,
+[data-theme="dark"] .ds-title,      [data-theme="dark"] .ds-title-cell,
+[data-theme="dark"] .dm-title,      [data-theme="dark"] .dm-card-title,
+[data-theme="dark"] .um-title,      [data-theme="dark"] .um-card-title, [data-theme="dark"] .um-name,
+[data-theme="dark"] .ac-title,      [data-theme="dark"] .ac-card-title,
+[data-theme="dark"] .set-title,     [data-theme="dark"] .set-section-title,
+[data-theme="dark"] .qb-title,      [data-theme="dark"] .qb-q-text,
+[data-theme="dark"] .tq-title,      [data-theme="dark"] .tq-q-head,     [data-theme="dark"] .tq-quiz-title,
+[data-theme="dark"] .qr-title,      [data-theme="dark"] .qr-kpi-value,  [data-theme="dark"] .qr-quiz-name,
+[data-theme="dark"] .tm-title,      [data-theme="dark"] .tm-card-title, [data-theme="dark"] .tm-name,
+[data-theme="dark"] .dash-card-title { color: var(--text); }
+
+/* secondary text */
+[data-theme="dark"] .dash-subtitle, [data-theme="dark"] .dash-card-sub, [data-theme="dark"] .dash-kpi-label,
+[data-theme="dark"] .asst-subtitle, [data-theme="dark"] .asst-q,       [data-theme="dark"] .asst-source, [data-theme="dark"] .asst-history-title,
+[data-theme="dark"] .ds-subtitle,
+[data-theme="dark"] .dm-subtitle,
+[data-theme="dark"] .um-subtitle,
+[data-theme="dark"] .ac-subtitle,   [data-theme="dark"] .ac-card-sub,  [data-theme="dark"] .ac-perms-label,
+[data-theme="dark"] .set-subtitle,  [data-theme="dark"] .set-section-sub, [data-theme="dark"] .set-value-static,
+[data-theme="dark"] .qb-subtitle,   [data-theme="dark"] .qb-source,
+[data-theme="dark"] .tq-subtitle,   [data-theme="dark"] .tq-quiz-meta,  [data-theme="dark"] .tq-quiz-doc,
+[data-theme="dark"] .qr-subtitle,   [data-theme="dark"] .qr-kpi-label,
+[data-theme="dark"] .tm-subtitle,   [data-theme="dark"] .tm-card-sub,   [data-theme="dark"] .tm-sup-home { color: var(--text-2); }
+
+/* cards + surfaces */
+[data-theme="dark"] .dash-card,  [data-theme="dark"] .dash-kpi,
+[data-theme="dark"] .asst-input-card, [data-theme="dark"] .asst-answer-card,
+[data-theme="dark"] .ds-card,
+[data-theme="dark"] .dm-card,
+[data-theme="dark"] .um-card,
+[data-theme="dark"] .ac-card,
+[data-theme="dark"] .set-card,
+[data-theme="dark"] .qb-card,
+[data-theme="dark"] .tq-q-card, [data-theme="dark"] .tq-quiz-card,
+[data-theme="dark"] .qr-card,   [data-theme="dark"] .qr-kpi,
+[data-theme="dark"] .tm-card {
+  background: var(--card);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+/* inputs, selects, search boxes */
+[data-theme="dark"] .dash-select,
+[data-theme="dark"] .asst-input,
+[data-theme="dark"] .ds-search,  [data-theme="dark"] .ds-select,
+[data-theme="dark"] .dm-input,
+[data-theme="dark"] .um-input,
+[data-theme="dark"] .ac-input,
+[data-theme="dark"] .set-input,  [data-theme="dark"] .set-select,
+[data-theme="dark"] .qb-input,
+[data-theme="dark"] .qr-select,  [data-theme="dark"] .qr-search,
+[data-theme="dark"] .tm-select {
+  background: var(--input-bg);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+/* table header + cell borders/colours */
+[data-theme="dark"] .dash-table th, [data-theme="dark"] .ds-table th, [data-theme="dark"] .dm-table th,
+[data-theme="dark"] .um-table th,   [data-theme="dark"] .qr-table th, [data-theme="dark"] .tm-table th {
+  border-color: var(--border); color: var(--text-2);
+}
+[data-theme="dark"] .dash-table td, [data-theme="dark"] .ds-table td, [data-theme="dark"] .dm-table td,
+[data-theme="dark"] .um-table td,   [data-theme="dark"] .qr-table td, [data-theme="dark"] .tm-table td {
+  border-color: var(--border-soft); color: var(--text);
+}
+
+/* option rows / chips / list items */
+[data-theme="dark"] .qb-option,
+[data-theme="dark"] .tq-option,
+[data-theme="dark"] .ac-role-row,
+[data-theme="dark"] .tm-chip {
+  background: var(--input-bg); border-color: var(--border); color: var(--text);
+}
+[data-theme="dark"] .ac-list-item { color: var(--text-2); }
+[data-theme="dark"] .ac-list-item:hover { background: var(--hover); color: var(--text); }
+[data-theme="dark"] .tm-sup { border-color: var(--border-soft); }
+[data-theme="dark"] .set-section { border-color: var(--border-soft); }
+
+/* keep selected/correct/wrong states readable (they have their own bright bg) */
+[data-theme="dark"] .qb-option-correct,
+[data-theme="dark"] .tq-option-correct { background: #14532d; border-color: #166534; color: #bbf7d0; }
+[data-theme="dark"] .tq-option-wrong   { background: #7f1d1d; border-color: #991b1b; color: #fecaca; }
+[data-theme="dark"] .tq-option-selected { background: #1e3a8a; border-color: #2563eb; color: #dbeafe; }
+
+/* file chooser button + reset button neutral surfaces */
+[data-theme="dark"] .dm-file-button { background: var(--border); color: var(--text); }
+[data-theme="dark"] .set-reset { background: transparent; color: var(--text-2); border-color: var(--border); }
+[data-theme="dark"] .qb-regen  { background: transparent; color: var(--text-2); border-color: var(--border); }
+[data-theme="dark"] .tm-sup-home { background: var(--hover); }

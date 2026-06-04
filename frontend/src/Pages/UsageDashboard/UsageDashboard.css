@@ -1,0 +1,205 @@
+/* ── Page ───────────────────────────────────────────── */
+
+.dash-page {
+  padding: 32px 40px;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: #0f172a;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.dash-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.dash-subtitle {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.dash-export {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.dash-export:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* ── Filters ────────────────────────────────────────── */
+
+.dash-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dash-select {
+  padding: 9px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  color: #0f172a;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.dash-select:focus {
+  border-color: #2563eb;
+}
+
+/* ── KPI cards ──────────────────────────────────────── */
+
+.dash-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dash-kpi {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 22px;
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.dash-kpi-green { border-left-color: #16a34a; }
+.dash-kpi-amber { border-left-color: #f59e0b; }
+.dash-kpi-red   { border-left-color: #dc2626; }
+
+.dash-kpi-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.dash-kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ── Cards ──────────────────────────────────────────── */
+
+.dash-card {
+  background: white;
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.dash-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+
+.dash-card-sub {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+/* ── Charts grid ────────────────────────────────────── */
+
+.dash-charts {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 16px;
+}
+
+.dash-charts .dash-card {
+  margin-bottom: 24px;
+}
+
+/* ── Tables ─────────────────────────────────────────── */
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.dash-table th,
+.dash-table td {
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 14px;
+}
+
+.dash-table th {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dash-table td {
+  border-bottom: 1px solid #f1f5f9;
+  color: #1e293b;
+}
+
+.dash-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Badges ─────────────────────────────────────────── */
+
+.dash-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+.dash-badge-green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.dash-badge-amber {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.dash-badge-red {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .dash-kpis { grid-template-columns: repeat(2, 1fr); }
+  .dash-charts { grid-template-columns: 1fr; }
+}

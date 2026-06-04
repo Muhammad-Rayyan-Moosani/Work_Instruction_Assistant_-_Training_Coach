@@ -1,0 +1,128 @@
+/* ── Sidebar shell ──────────────────────────────────── */
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--sidebar-border);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 14px;
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+
+/* ── Brand ──────────────────────────────────────────── */
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px 24px 10px;
+  border-bottom: 1px solid var(--sidebar-border);
+  margin-bottom: 18px;
+}
+
+.sidebar-brand-icon {
+  width: 32px;
+  height: 32px;
+  background: #2563eb;
+  color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.sidebar-brand-text {
+  color: var(--sidebar-brand);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+/* ── Nav links ──────────────────────────────────────── */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar-link:hover {
+  background: var(--sidebar-hover);
+  color: var(--text);
+}
+
+.sidebar-link-active {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  font-weight: 600;
+}
+
+.sidebar-link-active:hover {
+  background: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+}
+
+/* ── Footer (user + logout) ─────────────────────────── */
+
+.sidebar-footer {
+  border-top: 1px solid var(--sidebar-border);
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+.sidebar-user {
+  padding: 4px 10px 12px 10px;
+}
+
+.sidebar-user-name {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sidebar-user-role {
+  color: var(--sidebar-muted);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.sidebar-logout {
+  width: 100%;
+  background: transparent;
+  color: var(--sidebar-text);
+  border: 1px solid var(--sidebar-border);
+  border-radius: 8px;
+  padding: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.sidebar-logout:hover {
+  background: rgba(220, 38, 38, 0.12);
+  color: #ef4444;
+  border-color: rgba(220, 38, 38, 0.4);
+}

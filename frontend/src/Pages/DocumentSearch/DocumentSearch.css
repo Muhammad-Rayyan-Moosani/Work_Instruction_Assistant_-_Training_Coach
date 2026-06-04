@@ -1,0 +1,37 @@
+.ds-page { padding: 32px 40px; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; color: #0f172a; }
+.ds-header { margin-bottom: 24px; }
+.ds-title { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.ds-subtitle { font-size: 14px; color: #64748b; }
+
+.ds-controls { display: flex; gap: 12px; margin-bottom: 20px; }
+.ds-search, .ds-select {
+  padding: 10px 14px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+}
+.ds-search { flex: 1; }
+.ds-search:focus, .ds-select:focus { border-color: #2563eb; }
+
+.ds-card { background: white; border-radius: 12px; padding: 8px 12px; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06); }
+.ds-table { width: 100%; border-collapse: collapse; }
+.ds-table th, .ds-table td { text-align: left; padding: 12px 10px; font-size: 14px; }
+.ds-table th {
+  color: #64748b; font-weight: 600; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 0.4px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.ds-table td { border-bottom: 1px solid #f1f5f9; color: #1e293b; }
+.ds-table tr:last-child td { border-bottom: none; }
+
+.ds-title-cell { font-weight: 600; }
+.ds-type { background: #e0e7ff; color: #3730a3; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+.ds-open {
+  background: #2563eb; color: white; border: none; border-radius: 6px;
+  padding: 6px 14px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.ds-open:hover { background: #1d4ed8; }
+.ds-empty { text-align: center; color: #94a3b8; padding: 28px 0; }

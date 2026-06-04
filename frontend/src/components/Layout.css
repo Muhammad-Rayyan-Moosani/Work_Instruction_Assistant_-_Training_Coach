@@ -1,0 +1,33 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.layout-body {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-topbar {
+  height: 56px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.layout-main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: var(--bg);
+}

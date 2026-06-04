@@ -1,54 +1,92 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Login              from './Pages/Login/Login.jsx'
+import Assistant          from './Pages/Assistant/Assistant.jsx'
+import DocumentSearch     from './Pages/DocumentSearch/DocumentSearch.jsx'
+import DocumentManagement from './Pages/DocumentManagement/DocumentManagement.jsx'
+import UserManagement     from './Pages/UserManagement/UserManagement.jsx'
+import TeamManagement     from './Pages/TeamManagement/TeamManagement.jsx'
+import AccessControl      from './Pages/AccessControl/AccessControl.jsx'
+import AdminSettings      from './Pages/AdminSettings/AdminSettings.jsx'
+import UsageDashboard     from './Pages/UsageDashboard/UsageDashboard.jsx'
+import QuizBuilder        from './Pages/QuizBuilder/QuizBuilder.jsx'
+import TakeQuiz           from './Pages/TakeQuiz/TakeQuiz.jsx'
+import QuizResults        from './Pages/QuizResults/QuizResults.jsx'
+import ProtectRoute       from './components/ProtectedRoute.jsx'
 
 function App() {
-  const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
-
-  useEffect(() => {
-    fetchHealthCheck()
-  }, [])
-
-  const fetchHealthCheck = async () => {
-    try {
-      setLoading(true)
-      const response = await fetch(`${API_URL}/health`)
-      const data = await response.json()
-      setMessage(data.message)
-      setError(null)
-    } catch (err) {
-      setError('Failed to connect to backend')
-      console.error('Error:', err)
-    } finally {
-      setLoading(false)
-    }
-  }
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Vite + React + Flask</h1>
-        <div className="status-card">
-          {loading && <p>Connecting to backend...</p>}
-          {error && <p className="error">{error}</p>}
-          {!loading && !error && (
-            <div>
-              <p className="success">Backend Status: {message}</p>
-              <button onClick={fetchHealthCheck}>
-                Refresh Connection
-              </button>
-            </div>
-          )}
-        </div>
-        <div className="info">
-          <p>Edit <code>src/App.jsx</code> to get started</p>
-          <p>Backend running on: {API_URL}</p>
-        </div>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+  
+        <Route path="/" element={<Login />} />
+
+
+        <Route path="/assistant" element={
+          <ProtectRoute allowedRoles={['Administrator', 'Operator', 'Supervisor']}>
+            <Assistant />
+          </ProtectRoute>
+        } />
+        <Route path="/documents/search" element={
+          <ProtectRoute>
+            <DocumentSearch />
+          </ProtectRoute>
+        } />
+        <Route path="/quiz/take" element={
+          <ProtectRoute>
+            <TakeQuiz />
+          </ProtectRoute>
+        } />
+
+        {/* Admin only */}
+        <Route path="/users" element={
+          <ProtectRoute allowedRoles={['Administrator']}>
+            <UserManagement />
+          </ProtectRoute>
+        } />
+        <Route path="/teams" element={
+          <ProtectRoute allowedRoles={['Administrator']}>
+            <TeamManagement />
+          </ProtectRoute>
+        } />
+        <Route path="/documents/manage" element={
+          <ProtectRoute allowedRoles={['Administrator']}>
+            <DocumentManagement />
+          </ProtectRoute>
+        } />
+        <Route path="/access-control" element={
+          <ProtectRoute allowedRoles={['Administrator']}>
+            <AccessControl />
+          </ProtectRoute>
+        } />
+        <Route path="/settings" element={
+          <ProtectRoute allowedRoles={['Administrator']}>
+            <AdminSettings />
+          </ProtectRoute>
+        } />
+
+        {/* Admin + Supervisor */}
+        <Route path="/quiz/builder" element={
+          <ProtectRoute allowedRoles={['Administrator', 'Supervisor']}>
+            <QuizBuilder />
+          </ProtectRoute>
+        } />
+
+        {/* Admin + Supervisor + Executive Viewer */}
+        <Route path="/dashboard" element={
+          <ProtectRoute allowedRoles={['Administrator', 'Supervisor', 'Executive Viewer']}>
+            <UsageDashboard />
+          </ProtectRoute>
+        } />
+        <Route path="/quiz/results" element={
+          <ProtectRoute allowedRoles={['Administrator', 'Supervisor', 'Executive Viewer']}>
+            <QuizResults />
+          </ProtectRoute>
+        } />
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
